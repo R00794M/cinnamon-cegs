@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinnamon Cegs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+height:100vh;
+background: linear-gradient(180deg,#7dd3fc,#4ecdc4,#7dd3fc);
+color:white;
+font-family:'Nunito', sans-serif;
+overflow:hidden;
+}
+
+/* TELA INICIAL */
+#inicio{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.logo{
+font-family:'Baloo 2';
+font-size:72px;
+font-weight:800;
+text-shadow:4px 4px 0 rgba(255,255,255,0.3);
+}
+
+.btn{
+margin-top:40px;
+padding:14px 40px;
+border-radius:30px;
+border:2px solid white;
+background:none;
+color:white;
+cursor:pointer;
+font-family:'Baloo 2';
+font-size:18px;
+}
+
+/* HOME */
+#home{display:none;height:100vh;position:relative;overflow-y:auto;}
+
+.menu-top{
+position:absolute;top:20px;left:20px;font-weight:700;cursor:pointer;
+}
+
+.profile-icon{
+position:absolute;top:20px;right:20px;
+width:45px;height:45px;border-radius:50%;
+background:white;color:#4ecdc4;
+display:flex;justify-content:center;align-items:center;
+font-weight:bold;cursor:pointer;
+overflow:hidden;
+}
+
+.profile-icon img{
+width:100%;height:100%;object-fit:cover;
+}
+
+.section{
+display:none;
+padding:100px 20px 40px;
+max-width:800px;
+margin:auto;
+text-align:center;
+}
+
+.active-section{display:block;}
+
+h2{font-family:'Baloo 2';margin-bottom:15px;}
+.blue-link{color:#003366;font-weight:bold;text-decoration:underline;}
+
+/* SIDEBAR */
+.sidebar{
+position:fixed;left:-300px;top:0;
+width:300px;height:100%;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(15px);
+padding:35px 25px;
+transition:0.4s;
+overflow-y:auto;
+}
+
+.sidebar.active{left:0;}
+
+.sidebar a{
+display:block;
+margin:10px 0;
+padding:12px 15px;
+border-radius:25px;
+background:rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+cursor:pointer;
+}
+
+.submenu{display:none;margin-left:20px;}
+.show{display:block;}
+</style>
+</head>
+<body>
+
+<!-- TELA INICIAL -->
+<div id="inicio">
+<div class="logo">CINNAMON CEGS</div>
+<button class="btn" onclick="entrar()">INICIAR</button>
+</div>
+
+<!-- HOME -->
+<div id="home">
+
+<div class="menu-top" onclick="toggleMenu()">MENU</div>
+
+<div class="profile-icon" onclick="mostrarSecao('perfil')">
+<span id="profileInitial">?</span>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="section active-section">
+<h2>Bem vindos à Cinnamon Cegs 🩵</h2>
+<p><b>Obrigada pela preferência!</b></p><br>
+<p>
+Comunidade ativa desde 04/09/2024.<br><br>
+Administrada por Rafa e Let - Criada no intuito de ajudar a todos em suas coleções da forma mais segura possível ☺︎
+</p>
+</div>
+
+<!-- COMUNICAÇÃO -->
+<div id="comunicacao" class="section">
+<h2>LINK DA COMUNIDADE</h2>
+<a href="https://chat.whatsapp.com/Cm8HVKjVt6n0isZPI0Afd5" target="_blank">Cinnamon Ceg's</a>
+
+<h2 style="margin-top:30px;">REDES SOCIAIS</h2>
+
+<p><b>Xuitter:</b><br>
+<a href="https://x.com/pur_pleki" target="_blank">@pur_pleki</a><br>
+<a href="https://x.com/imhanjinsm" target="_blank">@imhanjinsm</a>
+</p>
+
+<p style="margin-top:15px;"><b>Instagram:</b><br>
+<a href="https://www.instagram.com/pur_plekii?igsh=MTZhbnlsejNvdGJnYg==" target="_blank">pur_plekii</a><br>
+<a href="https://www.instagram.com/imhanjinsm?igsh=dGVvaHJzenE2ZHEy" target="_blank">imhanjinsm</a>
+</p>
+
+<p style="margin-top:15px;"><b>TikTok:</b><br>
+<a href="https://www.tiktok.com/@rafets2?_r=1&_t=ZS-94MT57U3EDE" target="_blank">@rafets2</a><br>
+<a href="https://www.tiktok.com/@im_hanjinsm?_r=1&_t=ZS-94MT6WmIIYW" target="_blank">@im_hanjinsm</a>
+</p>
+</div>
+
+<!-- TERMOS -->
+<div id="termos" class="section">
+<h2>TERMOS E REGRAS</h2>
+<p>Para um ambiente legal e interativo, criamos alguns termos para a construção da comunidade!</p><br>
+<a class="blue-link" href="https://cinnamoncegs.carrd.co/" target="_blank">Leia aqui! ★</a>
+</div>
+
+<!-- PRODUTOS INTERNACIONAIS -->
+<div id="internacional" class="section">
+<h2>PRODUTOS INTERNACIONAIS</h2>
+<p>⛔ Aviso Importante:</p><br>
+<p>
+• Calote de sellers<br>
+• Avaria não sinalizada<br>
+• Produtos extraviados no processo<br>
+• Caixa não aceitas no Brasil!
+</p>
+</div>
+
+<!-- POCAMARKET -->
+<div id="pocamarket" class="section">
+<h2>POCAMARKET</h2>
+<a class="blue-link" href="https://pocamarket.com" target="_blank">Site da POCAMARKET</a><br><br>
+<p>
+Como pedir: Entre no site, vá na aba de grupos e pesquise o grupo desejado, envie o link do anúncio para mim, confirmo e faço a compra no mesmo instante > Pagamento imediato para garantir o pc < (Ajudo a procurar itens da sua wishlist também!)
+<br><br>
+Os valores incluem o valor do photocard, taxa da poca e taxa de transação.
+</p><br>
+<a class="blue-link" href="https://drive.google.com/file/d/1XhBZJZFBmPt1dvBPROs2WE6nbt35rhmr/view?usp=drivesdk" target="_blank">☛ Confira a tabela de preços</a>
+</div>
+
+<!-- ENVIOS -->
+<div id="envios" class="section">
+<h2>ENVIOS NACIONAIS</h2>
+<p>
+▸ Cada Gom realiza os envios de forma independente, com prazos e métodos que podem variar! 
+ Os photocards serão cuidadosamente embalados e enviados apenas por quem abriu o set correspondente.
+  Ou seja: a Rafa cuida dos pcs que ela abriu, e a Letis dos que foram responsabilidade dela. .<br><br>
+📝 Importante:
+
+Fiquem de olho nos avisos!
+Os formulários de envio nacional serão liberados por cada Gom individualmente.<br><br>
+<span class="blue-link">Correio - Carta Registrada<br>
+Super Frete - Mini Envios, PAC, SEDEX<br>
+Shopee - Modalidade adotada apenas pela Rafa</span>
+</p>
+</div>
+
+<!-- CONTROLE -->
+<div id="controle" class="section">
+<h2>CONTROLE DE CEGS E PRAZOS</h2>
+<p>Controle de Ceg's e Prazo (Rafa @pur_pleki)</p><br>
+<a class="blue-link" href="https://docs.google.com/spreadsheets/d/1aVZRaOph5JHHzPI0eeMT-1fuezk8x21JaKI39S_BiNQ/edit?usp=drivesdk" target="_blank">
+☛ Confira aqui a planilha
+</a>
+</div>
+
+<!-- PERFIL -->
+<div id="perfil" class="section">
+<h2>Seu Perfil</h2>
+<input type="file" id="fotoInput"><br><br>
+<input type="text" id="nome" placeholder="Seu nome"><br><br>
+<input type="text" id="arroba" placeholder="@seuarroba"><br><br>
+<textarea id="bio" placeholder="Sua bio"></textarea><br><br>
+<button onclick="salvarPerfil()">Salvar</button>
+</div>
+
+</div>
+
+<!-- MENU -->
+<div class="sidebar" id="menu">
+<a onclick="mostrarSecao('intro')">🏠 Início</a>
+<a onclick="toggleFeedback()">⭐ Feedback's</a>
+<div class="submenu" id="feedbackMenu">
+<a href="https://www.instagram.com/pur_plekii?igsh=MTZhbnlsejNvdGJnYg==" target="_blank">🩵 Feedback Rafa</a>
+<a href="https://x.com/i/status/1799961008301080763" target="_blank">🤍 Feedback Let</a>
+</div>
+<a onclick="mostrarSecao('comunicacao')">💬 Comunicação</a>
+<a onclick="mostrarSecao('termos')">📜 Termos e Regras</a>
+<a onclick="mostrarSecao('internacional')">🌎 Produtos Internacionais</a>
+<a onclick="mostrarSecao('pocamarket')">🛒 Pocamarket</a>
+<a onclick="mostrarSecao('envios')">📦 Envios Nacionais</a>
+<a onclick="mostrarSecao('controle')">⏱ Controle de CEGS</a>
+</div>
+
+<script>
+function entrar(){
+document.getElementById("inicio").style.display="none";
+document.getElementById("home").style.display="block";
+}
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+
+function toggleFeedback(){
+document.getElementById("feedbackMenu").classList.toggle("show");
+}
+
+function mostrarSecao(id){
+document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('active-section'));
+document.getElementById(id).classList.add('active-section');
+toggleMenu();
+}
+
+/* PERFIL */
+function salvarPerfil(){
+let nome=document.getElementById("nome").value;
+localStorage.setItem("nome",nome);
+document.getElementById("profileInitial").innerText=nome.charAt(0).toUpperCase();
+alert("Perfil salvo!");
+}
+
+window.onload=function(){
+let nome=localStorage.getItem("nome");
+if(nome){
+document.getElementById("profileInitial").innerText=nome.charAt(0).toUpperCase();
+}
+}
+</script>
+
+</body>
+</html>
